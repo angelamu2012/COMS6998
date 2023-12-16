@@ -47,7 +47,7 @@ The baseline used for comparison is the original CovidET dataset, found in the d
 
 **Model** 
 The model used for emotion summarization is a joint model proposed by [CovidET](https://github.com/honglizhan/CovidET/tree/main)
-The script is named detection_summarization.py. To run the script, the emotion, training dataset, test dataset, and a suffix string for the output file must be specified. 
+The script is named detection_summarization.py. To run the script, the emotion, training dataset, test dataset, learning rate, and a suffix string for the output file must be specified. 
 
 ```
 $ TOKENIZERS_PARALLELISM=false python detection_summarization.py \
@@ -55,9 +55,6 @@ $ TOKENIZERS_PARALLELISM=false python detection_summarization.py \
 	--training_path <...> \
 	--validation_path <...> \
 	--test_path <...> \
-	--model facebook/bart-large-cnn \
-	--batch_size <...> \
-	--gradient_accumulation_steps <...> \
 	--results_detection_summarization <filename> \
 	--learning_rate <...>
 ```

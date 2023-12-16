@@ -2,7 +2,7 @@
 
 # Datasets
 
-The cleaned and preprocessed datasets used for fine-tuning and testing are found in the datasets folder. They are specified as command line arguments when running detection_summarization.py. 
+The cleaned and preprocessed datasets used for fine-tuning and testing are found in the datasets folder. They are specified as command line arguments when running detection_summarization.py.  
 
 **train_anonymized-WITH_POSTS.json**: Original CovidET training dataset, baseline dataset
 
@@ -23,11 +23,12 @@ The cleaned and preprocessed datasets used for fine-tuning and testing are found
 
 # Jupyter Notebooks
 
-***Data Gathering, Processing, Visualization***
+***Data Gathering, Processing, Visualization*** 
+Information regarding data downloading, generation, data preprocessing is described alongside the corresponding notebook. 
 
-**Back_Translation.ipynb**: Performs backtranslation on the Reddit Posts from CovidET. Used to generate the backtranslation dataset. Results can be found in the datasets folder 
+**Back_Translation.ipynb**: Performs Spanish backtranslation on the Reddit Posts from CovidET using MarianMT. Used to generate the backtranslation dataset. Results can be found in the datasets folder. 
 
-**Reddit_Scrape.ipynb**: Scrapes Reddit Posts and cleans data. Results can be found in the datasets folder 
+**Reddit_Scrape.ipynb**: Scrapes Reddit Posts and cleans data. Results can be found in the datasets folder. Scraping methods include using PRAW and Pullpush. Preprocessing includes replacing certain entities with the corresponding tag, as well as replacing urls, empty space, etc. 
 
 **CSV_Data_To_JSON_Format.ipynb**: Converts gathered data into the required JSON format to be consistent with the CovidET dataset format. 
 
@@ -40,5 +41,12 @@ The cleaned and preprocessed datasets used for fine-tuning and testing are found
 
 **metrics.ipynb**: Finds BERTScore, SummaCConv score, BLEU, self-BLEU on generated summaries or on Reddit Posts. The calculation of these metrics is done separately and outside of detection_summarization due to memory limits and so that it can be run on a CPU instead of GPU. 
 
-# Model Evaluation
+# Model Training and Evaluation
+**Baseline** 
+The baseline used for comparison is the original CovidET dataset, found in the datasets folder. These files are specified as command line arguments to detection_summarization.py. 
+
+**Model** 
+The model used for emotion summarization is a joint model proposed by CovidET[https://github.com/honglizhan/CovidET/tree/main]
+
+
 Running detection_summarization.py creates text files consisting of the emotion detection results and generated summaries. 2 files are generated for generated summaries, one which is formatted such that it's easy to compare the generated summary with the target, annotated summary, and one which is used to compute the BERTScore. It also creates JSON files consisting of F-scores and ROUGE scores. A placeholder value is generated for the BERTScore in the JSON file. The corresponding generated summaries text file is fed into metrics.ipynb to calculate the BERTScore and replace the placeholder value. 

@@ -23,7 +23,7 @@ The cleaned and preprocessed datasets used for fine-tuning and testing are found
 
 # Jupyter Notebooks
 
-<u>**Data Gathering, Processing, Visualization**</u>
+***Data Gathering, Processing, Visualization***
 
 **Back_Translation.ipynb**: Performs backtranslation on the Reddit Posts from CovidET. Used to generate the backtranslation dataset. Results can be found in the datasets folder 
 
@@ -35,7 +35,7 @@ The cleaned and preprocessed datasets used for fine-tuning and testing are found
 
 **lda.ipynb**: Performs Latent Dirichlet allocation to identify topics within abstractive summaries for each dataset. 
 
-**Metrics**
+***Metrics***
 
 **metrics.ipynb**: Finds BERTScore, SummaCConv score, BLEU, self-BLEU on generated summaries or on Reddit Posts. The calculation of these metrics is done separately and outside of detection_summarization due to memory limits and so that it can be run on a CPU instead of GPU. 
 

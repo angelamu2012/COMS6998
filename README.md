@@ -23,7 +23,7 @@ The cleaned and preprocessed datasets used for fine-tuning and testing are found
 
 # Jupyter Notebooks
 
-**<u>Data Gathering, Processing, Visualization<u>**
+<u>**Data Gathering, Processing, Visualization**</u>
 
 **Back_Translation.ipynb**: Performs backtranslation on the Reddit Posts from CovidET. Used to generate the backtranslation dataset. Results can be found in the datasets folder 
 

@@ -1,4 +1,4 @@
-# **COMS6998 Project** Enhancing Emotion Summarization through the Introduction of Nuanced Emotions and Synthetic Datasets**
+# **COMS6998 Project:** Enhancing Emotion Summarization through the Introduction of Nuanced Emotions and Synthetic Datasets
 
 # Datasets
 

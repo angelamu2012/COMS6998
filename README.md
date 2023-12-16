@@ -42,11 +42,13 @@ Information regarding data downloading, generation, data preprocessing is descri
 **metrics.ipynb**: Finds BERTScore, SummaCConv score, BLEU, self-BLEU on generated summaries or on Reddit Posts. The calculation of these metrics is done separately and outside of detection_summarization due to memory limits and so that it can be run on a CPU instead of GPU. 
 
 # Model Training and Evaluation
-**Baseline** 
-The baseline used for comparison is the original CovidET dataset, found in the datasets folder. These files are specified as command line arguments to detection_summarization.py. 
+**Baseline and Experiments** 
+The baseline used for comparison is the original CovidET dataset, found in the datasets folder. These files are specified as command line arguments to detection_summarization.py. To run the other experiments, specify the relevant datasets. 
 
 **Model** 
 The model used for emotion summarization is a joint model proposed by [CovidET](https://github.com/honglizhan/CovidET/tree/main)
+The script is named detection_summarization.py. To run the script, the emotion, training dataset, and evaluation dataset must be specified. 
 
+**Evaluation**
+Running detection_summarization.py creates 3 text files consisting of the emotion detection prediction results and generated summaries. 2 files are generated for generated summaries, one which is formatted such that it's easy to compare the generated summary with the target, annotated summary, and one which is used in metrics.ipynb to compute the BERTScore. It also creates a JSON file consisting of F-scores and ROUGE scores. A placeholder value is generated for the BERTScore in the JSON file. The corresponding generated summaries text file is fed into metrics.ipynb to calculate the BERTScore and replace the placeholder value. 
 
-Running detection_summarization.py creates text files consisting of the emotion detection results and generated summaries. 2 files are generated for generated summaries, one which is formatted such that it's easy to compare the generated summary with the target, annotated summary, and one which is used to compute the BERTScore. It also creates JSON files consisting of F-scores and ROUGE scores. A placeholder value is generated for the BERTScore in the JSON file. The corresponding generated summaries text file is fed into metrics.ipynb to calculate the BERTScore and replace the placeholder value. 

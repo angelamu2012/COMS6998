@@ -47,7 +47,7 @@ The baseline used for comparison is the original CovidET dataset, found in the d
 
 **Model** 
 The model used for emotion summarization is a joint model proposed by [CovidET](https://github.com/honglizhan/CovidET/tree/main)
-The script is named detection_summarization.py. To run the script, the emotion, training dataset, and evaluation dataset must be specified. 
+The script is named detection_summarization.py. To run the script, the emotion, training dataset, test dataset, and a suffix string for the output file must be specified. 
 
 ```
 $ TOKENIZERS_PARALLELISM=false python detection_summarization.py \
@@ -63,5 +63,5 @@ $ TOKENIZERS_PARALLELISM=false python detection_summarization.py \
 ```
 
 **Evaluation**
-Running detection_summarization.py creates 3 text files consisting of the emotion detection prediction results and generated summaries. 2 files are generated for generated summaries, one which is formatted such that it's easy to compare the generated summary with the target, annotated summary, and one which is used in metrics.ipynb to compute the BERTScore. It also creates a JSON file consisting of F-scores and ROUGE scores. A placeholder value is generated for the BERTScore in the JSON file. The corresponding generated summaries text file is fed into metrics.ipynb to calculate the BERTScore and replace the placeholder value. 
+Running detection_summarization.py creates 3 text files consisting of the emotion detection prediction results (detection_output...txt) and generated summaries. 2 files are generated for generated summaries, one which is formatted such that it's easy to compare the generated summary with the target (summaries_output...txt), annotated summary, and one which is used in metrics.ipynb to compute the BERTScore (summaries_output_for_bert...txt). It also creates a JSON file consisting of F-scores and ROUGE scores. A placeholder value is generated for the BERTScore in the JSON file. The corresponding generated summaries text file is fed into metrics.ipynb to calculate the BERTScore and replace the placeholder value. 
 

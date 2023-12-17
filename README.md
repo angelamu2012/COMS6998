@@ -49,7 +49,7 @@ The baseline used for comparison is the original CovidET dataset, found in the d
 The model used for emotion summarization is a joint model proposed by [CovidET](https://github.com/honglizhan/CovidET/tree/main)
 The script is named detection_summarization.py. To run the script, the emotion, training dataset, test dataset, learning rate, and a suffix string for the output file must be specified. 
 
-Modifications include calculating ROUGE 1 and 2 scores instead of just ROUGE-L, writing intermediate outputs (detection results, generated summaries) to files and refactoring relevant methods (full_eval(), ev_once(), evaluate_summaries()) to do so  instead of just F1, ROUGE and BERTScores, removing BERTScore calculations and calculating them separately due to memory limits, adding comments to code
+Modifications include calculating ROUGE 1 and 2 scores instead of just ROUGE-L and refactoring relevant methods (full_eval(), ev_once(), evaluate_summaries()) to do so, writing intermediate outputs (detection results, generated summaries) to files, removing BERTScore calculations and calculating them separately due to memory limits, adding comments to code
 
 ```
 $ TOKENIZERS_PARALLELISM=false python detection_summarization.py \

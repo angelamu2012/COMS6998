@@ -87,6 +87,7 @@ def shift_tokens_right(input_ids: torch.Tensor, pad_token_id: int,
 
 
 class DetectionSummarizationModel(BartForConditionalGeneration):
+  # inherits from BartForConditionalGeneration, used for detection and summarization
 
     def __init__(self, cfg):
         super().__init__(cfg)
@@ -189,7 +190,7 @@ class DetectionSummarizationModel(BartForConditionalGeneration):
                 output = (lm_logits, ) + outputs[1:]
                 return ((masked_lm_loss, ) +
                         output) if masked_lm_loss is not None else output
-
+            # output to be returned
             output_lm_head = Seq2SeqLMOutput(
                 loss=masked_lm_loss,
                 logits=lm_logits,
@@ -248,7 +249,8 @@ class DetectionSummarizationModel(BartForConditionalGeneration):
             #compute loss b/t logits and labels
             classification_loss = classification_loss_fn(
                 logits, classification_labels)
-
+          
+            #output to be returned
             output_classification_head = Seq2SeqSequenceClassifierOutput(
                 loss=classification_loss,
                 logits=logits,
